@@ -1,0 +1,104 @@
+/* اسم الملف: Footer.css */
+/* الوصف: أنماط CSS لمكون التذييل (Footer). */
+/* التاريخ: 2023-10-27 */
+
+.app-footer {
+    background-color: var(--secondary-color); /* لون خلفية التذييل من متغيرات الوضع */
+    color: var(--text-color); /* لون النص في التذييل */
+    padding: var(--spacing-xl) 0 var(--spacing-md); /* مسافة داخلية علوية، سفلية، وجوانب */
+    border-top: 1px solid var(--border-color); /* حد علوي خفيف */
+    margin-top: var(--spacing-xl); /* مسافة علوية من المحتوى الرئيسي */
+    transition: background-color var(--transition-speed-normal) var(--transition-ease),
+                color var(--transition-speed-normal) var(--transition-ease),
+                border-color var(--transition-speed-normal) var(--transition-ease);
+}
+
+.footer-content {
+    display: flex; /* استخدام Flexbox لترتيب الأقسام أفقياً */
+    justify-content: space-around; /* توزيع الأقسام بالتساوي */
+    flex-wrap: wrap; /* السماح للأقسام بالانتقال إلى سطر جديد */
+    gap: var(--spacing-lg); /* مسافة بين الأقسام */
+    margin-bottom: var(--spacing-xl); /* مسافة سفلية قبل الجزء السفلي */
+}
+
+.footer-section {
+    flex: 1; /* السماح للأقسام بالتمدد */
+    min-width: 200px; /* الحد الأدنى لعرض القسم */
+    text-align: center; /* توسيط محتوى القسم */
+}
+
+.footer-section h3 {
+    font-size: var(--font-size-md); /* حجم خط العناوين */
+    color: var(--primary-color); /* لون أحمر نتفلكس للعناوين */
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* خط أحمر أسفل العنوان */
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 1px;
+}
+
+.footer-section ul {
+    list-style: none; /* إزالة الرموز النقطية */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section a {
+    color: var(--text-color); /* لون نص الروابط */
+    font-size: var(--font-size-base);
+    transition: color var(--transition-speed-fast) var(--transition-ease);
+}
+
+.footer-section a:hover {
+    color: var(--primary-color); /* تغيير اللون عند التحويم */
+    text-decoration: underline;
+}
+
+.footer-section p {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- الجزء السفلي من التذييل (حقوق النشر) --- */
+.footer-bottom {
+    text-align: center; /* توسيط النص */
+    border-top: 1px solid var(--border-color); /* حد علوي خفيف */
+    padding-top: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.footer-bottom p {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* --- التجاوبية للتذييل --- */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* ترتيب الأقسام عمودياً */
+        align-items: center; /* توسيط الأقسام */
+    }
+    .footer-section {
+        width: 100%; /* جعل الأقسام تأخذ عرضاً كاملاً */
+        max-width: 300px; /* تحديد أقصى عرض لتجنب التمدد الزائد */
+        margin-bottom: var(--spacing-lg);
+    }
+    .footer-section:last-child {
+        margin-bottom: 0;
+    }
+}
